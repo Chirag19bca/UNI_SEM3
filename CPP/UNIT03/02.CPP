@@ -1,10 +1,11 @@
-#include <iostream.h>
+#include <iostream>
 #include <conio.h>
+using namespace std;
 class shape
 {
 	double l,w;
 	public:
-	virtual void display_data()
+	virtual void display_area()
 	{
 		cout<<"\n This function display the area of specified shape";
 	}
@@ -29,18 +30,18 @@ class rectangle:public shape
 {
 	void display_area()
 	{
-		cout<<"\n area of rectangle: ";
-		int area=returnl() * returnw();
-		cout<<"\n area is "<<area;
+		int area;
+		area=returnl() * returnw() ;
+		cout<<"\n area of rectangle: "<<area;
 	}
 };
 class triangle:public shape
 {
 	void display_area()
 	{
-		cout<<"\n area of triangle: ";
-		int area=(returnl() * returnw())/2;
-		cout<<"\n area is "<<area;
+		int area;
+		area=(returnl() * returnw())/2;
+		cout<<"\n area of triangle: "<<area;
 	}
 };
 int main()
@@ -51,10 +52,10 @@ int main()
 	triangle t;
 	r.get_data();
 	p=&r;
-	p->display_data();
+	p->display_area();
 	t.get_data();
 	p=&t;
-	p->display_data();
+	p->display_area();
 	getch();
 	return 0;
 }
