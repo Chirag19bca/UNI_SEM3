@@ -21,7 +21,7 @@ class  calender
 	  {
 	    days=month=year=0;
 	  }
-	  calender(int d,int m,int y)
+	  void cal(int d,int m,int y)
 	  {
 
 		  if(m==1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12)
@@ -31,6 +31,7 @@ class  calender
 			 cout<<"\n days can't greater than 31\n";
 			 goto end;
 		       }
+
 		   }
 		   else if(m==4 || m==6 || m==8 || m==9 || m==11)
 		   {
@@ -39,14 +40,17 @@ class  calender
 			   cout<<"\n days can't grater than 30";
 			   goto end;
 			}
+
 		   }
 		   //cout<<"\n leap year logic";
-		   else if(y%4==0 || y%4==100 || y%4!=400)
+		   if(y%4==0 || y%4==100 || y%4!=400)
 		   {
 			 if(d>29)
 			 {
 			   cout<<"\n days cannot be graeter than 29 ";
+			   goto end;
 			 }
+
 		   }
 		   else
 		   {
@@ -56,28 +60,28 @@ class  calender
 			 goto end;
 		       }
 
+
 		   }
 		   if(m>12)
 		   {
 		     cout<<"\n month cannot be greater than 12";
 		     goto end;
 		   }
-		   if(y>2023)
+		   if(y>=2024)
 		   {
 		     cout<<"\n the year cannot greater than current year";
 		     goto end;
 		   }
-
-		      days=d;
-		      month=m;
-		      year=y;
-
+		   days=d;
+		   month=m;
+		   year=y;
+			goto finish;
 
 		   end:
-		       days=month=year=0;
 		       cout<<"\n\n THIS TYPE DATE NOT ACCEPTABLE";
 		       getch();
 		       exit(0);
+		       finish:
 
 	  }
 
@@ -161,7 +165,7 @@ int main()
 
    calender c1;
      c1.getdate();
-     calender c2(days,month,year);
+     c1.cal(days,month,year);
       c1.showdate();
       int d;
       cout<<"\n \n enter the days you want to add=";
