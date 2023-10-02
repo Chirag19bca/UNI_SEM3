@@ -1,0 +1,10 @@
+monitor
+5000
+mouse
+700
+keybroard
+600
+cpu
+14000
+ups
+5000
