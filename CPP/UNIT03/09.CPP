@@ -2,40 +2,38 @@
 #include <conio.h>
 class paise
 {
-	int p;
 	public:
-		void set(int a)
-		{
-			p=a;
-		}
-		void dis()
-		{
-			cout<<"\n paise is "<<p;
-		}
+	int p;
+	friend void compute();
 
 };
 class rupees
 {
-	int r;
 	public:
-		rupees()
+	int r;
+
+		void get()
 		{
-			r=10;
+			cout<<"\n Enter Rupees: ";
+			cin>>r;
 		}
-		operator paise()
-		{
-			paise t;
-			t.set(r*100);
-			return (t);
-		}
+	  friend void compute();
+
 };
+		void compute()
+		{
+			rupees r1;
+			paise p1;
+			r1.get();
+			p1.p=r1.r * 100;
+			cout<<"\n paise is "<<p1.p;
+
+		}
 int main()
 {
 	clrscr();
-	rupees r1;
-	paise p1;
-	p1=r1;
-	p1.dis();
+
+	compute();
 	getch();
 	return 0;
 }
